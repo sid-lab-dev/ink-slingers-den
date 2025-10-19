@@ -8,7 +8,7 @@ import techImage from "@/assets/article-tech.jpg";
 import designImage from "@/assets/article-design.jpg";
 import travelImage from "@/assets/article-travel.jpg";
 
-const articles: Record<string, any> = {
+const articles = {
   "1": {
     title: "The Future of Web Development: Trends to Watch in 2025",
     author: "Sarah Johnson",
@@ -104,7 +104,7 @@ const Article = () => {
               <div className="flex items-center space-x-4">
                 <Avatar className="h-12 w-12">
                   <AvatarFallback className="bg-primary text-primary-foreground">
-                    {article.author.split(' ').map((n: string) => n[0]).join('')}
+                    {article.author.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>
                 </Avatar>
                 <div>
@@ -169,7 +169,7 @@ const Article = () => {
             <div className="flex items-start space-x-4">
               <Avatar className="h-16 w-16">
                 <AvatarFallback className="bg-primary text-primary-foreground text-lg">
-                  {article.author.split(' ').map((n: string) => n[0]).join('')}
+                  {article.author.split(' ').map(n => n[0]).join('')}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1">

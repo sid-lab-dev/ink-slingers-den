@@ -3,17 +3,7 @@ import { Clock, Bookmark } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-interface ArticleCardProps {
-  id: string;
-  title: string;
-  excerpt: string;
-  author: string;
-  readTime: string;
-  date: string;
-  image: string;
-}
-
-const ArticleCard = ({ id, title, excerpt, author, readTime, date, image }: ArticleCardProps) => {
+const ArticleCard = ({ id, title, excerpt, author, readTime, date, image }) => {
   return (
     <Card className="group overflow-hidden border-0 shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)]">
       <Link to={`/article/${id}`}>
