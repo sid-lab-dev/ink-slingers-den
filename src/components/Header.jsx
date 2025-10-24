@@ -15,11 +15,14 @@ const Header = () => {
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
             Home
           </Link>
-          <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Explore
+          <Link to="/categories" className="text-sm font-medium transition-colors hover:text-primary">
+            Categories
           </Link>
-          <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Write
+          <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
+            About
+          </Link>
+          <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary">
+            Contact
           </Link>
         </nav>
 
