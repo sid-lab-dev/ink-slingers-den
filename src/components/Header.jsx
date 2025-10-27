@@ -28,12 +28,12 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Link to="/signin">
+          <Link to="/signin" state={{ defaultTab: "login" }}>
             <Button variant="ghost" size="sm" className="hidden md:inline-flex">
               Sign In
             </Button>
           </Link>
-          <Link to="/signin">
+          <Link to="/signin" state={{ defaultTab: "signup" }}>
             <Button size="sm" className="bg-primary hover:bg-primary/90">
               Get Started
             </Button>
