@@ -28,12 +28,16 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="sm" className="hidden md:inline-flex">
-            Sign In
-          </Button>
-          <Button size="sm" className="bg-primary hover:bg-primary/90">
-            Get Started
-          </Button>
+          <Link to="/signin">
+            <Button variant="ghost" size="sm" className="hidden md:inline-flex">
+              Sign In
+            </Button>
+          </Link>
+          <Link to="/signin">
+            <Button size="sm" className="bg-primary hover:bg-primary/90">
+              Get Started
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
           </Button>
