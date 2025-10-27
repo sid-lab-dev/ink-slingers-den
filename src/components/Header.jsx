@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PenSquare, Menu } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   return (
@@ -28,6 +29,7 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
+          <ThemeToggle />
           <Link to="/signin" state={{ defaultTab: "login" }}>
             <Button variant="ghost" size="sm" className="hidden md:inline-flex">
               Sign In
