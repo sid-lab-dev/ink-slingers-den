@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Users, Target, Heart, Sparkles } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                About <span className="text-primary">BlogSpace</span>
+                About <span className="text-primary">{siteConfig.name}</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
                 A platform where writers and readers come together to share ideas, 
@@ -48,7 +49,7 @@ const About = () => {
                   <h2 className="text-2xl font-bold">Our Values</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     We're committed to authenticity, diversity, and quality. Every piece 
-                    of content on BlogSpace is crafted with care, and we strive to maintain 
+                    of content on {siteConfig.name} is crafted with care, and we strive to maintain 
                     a respectful, inclusive environment for all our community members.
                   </p>
                 </div>
@@ -59,7 +60,7 @@ const About = () => {
                   </div>
                   <h2 className="text-2xl font-bold">Our Community</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Join thousands of writers and millions of readers who make BlogSpace 
+                    Join thousands of writers and millions of readers who make {siteConfig.name} 
                     their home. From tech enthusiasts to creative writers, our diverse 
                     community brings together perspectives from around the world.
                   </p>

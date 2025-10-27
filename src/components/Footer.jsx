@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PenSquare } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const Footer = () => {
   return (
@@ -9,10 +10,10 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <PenSquare className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">BlogSpace</span>
+              <span className="text-xl font-bold">{siteConfig.name}</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              A platform where ideas come to life. Share your stories with the world.
+              {siteConfig.description}
             </p>
           </div>
 
@@ -76,7 +77,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 border-t border-border/40 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} BlogSpace. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

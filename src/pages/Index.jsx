@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 import heroImage from "@/assets/hero-blog.jpg";
 import techImage from "@/assets/article-tech.jpg";
 import designImage from "@/assets/article-design.jpg";
@@ -76,11 +77,11 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                  Stories that
-                  <span className="block text-primary">inspire and inform</span>
+                  {siteConfig.tagline.split(' ').slice(0, 2).join(' ')}
+                  <span className="block text-primary">{siteConfig.tagline.split(' ').slice(2).join(' ')}</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Discover insightful articles from talented writers around the world. Join our community and share your voice.
+                  {siteConfig.description}
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">

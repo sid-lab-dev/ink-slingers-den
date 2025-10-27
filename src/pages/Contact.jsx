@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Mail, MessageSquare, HelpCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { siteConfig } from "@/config/site";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -53,8 +54,8 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">
                       Our team is here to help with any questions or concerns.
                     </p>
-                    <a href="mailto:hello@blogspace.com" className="text-sm text-primary hover:underline">
-                      hello@blogspace.com
+                    <a href={`mailto:${siteConfig.email}`} className="text-sm text-primary hover:underline">
+                      {siteConfig.email}
                     </a>
                   </Card>
 

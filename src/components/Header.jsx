@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PenSquare, Menu } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <PenSquare className="h-6 w-6 text-primary" />
-          <span className="text-2xl font-bold tracking-tight">BlogSpace</span>
+          <span className="text-2xl font-bold tracking-tight">{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
