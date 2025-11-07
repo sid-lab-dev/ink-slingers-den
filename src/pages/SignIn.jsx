@@ -8,11 +8,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PenSquare } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/context/AuthContext";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
+  const { login, signup } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const defaultTab = location.state?.defaultTab || "login";
 
@@ -32,14 +34,22 @@ const SignIn = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      await login(loginData.email, loginData.password);
       toast({
         title: "Login successful!",
         description: "Welcome back to " + siteConfig.name,
       });
-      setIsLoading(false);
       navigate("/");
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "Login failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSignup = async (e) => {
@@ -56,14 +66,22 @@ const SignIn = () => {
 
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      await signup(signupData.name, signupData.email, signupData.password);
       toast({
         title: "Account created!",
         description: "Welcome to " + siteConfig.name,
       });
-      setIsLoading(false);
       navigate("/");
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "Sign up failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

@@ -1,10 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { PenSquare, Menu } from "lucide-react";
+import { PenSquare, Menu, LogOut } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/context/AuthContext";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -30,16 +39,37 @@ const Header = () => {
 
         <div className="flex items-center space-x-4">
           <ThemeToggle />
-          <Link to="/signin" state={{ defaultTab: "login" }}>
-            <Button variant="ghost" size="sm" className="hidden md:inline-flex">
-              Sign In
-            </Button>
-          </Link>
-          <Link to="/signin" state={{ defaultTab: "signup" }}>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              Get Started
-            </Button>
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <div className="hidden md:flex items-center space-x-2">
+                <span className="text-sm text-muted-foreground">
+                  {user?.name || user?.email}
+                </span>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleLogout}
+                className="hidden md:inline-flex gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link to="/signin" state={{ defaultTab: "login" }}>
+                <Button variant="ghost" size="sm" className="hidden md:inline-flex">
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/signin" state={{ defaultTab: "signup" }}>
+                <Button size="sm" className="bg-primary hover:bg-primary/90">
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          )}
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
           </Button>
