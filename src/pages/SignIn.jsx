@@ -74,9 +74,10 @@ const SignIn = () => {
       });
       navigate("/");
     } catch (error) {
+      console.error('Signup error:', error);
       toast({
         title: "Sign up failed",
-        description: error.message,
+        description: error instanceof Error ? error.message : 'An unexpected error occurred',
         variant: "destructive",
       });
     } finally {
